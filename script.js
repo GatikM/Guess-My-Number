@@ -14,15 +14,19 @@ function triggerConfetti() {
   });
 }
 
+function displayMessage(message) {
+  document.querySelector(".message").textContent = message;
+}
+
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(guess, typeof guess);
 
   if (!guess) {
-    document.querySelector(".message").textContent = "⛔ No Number !";
+    displayMessage("⛔ No Number !");
   } else if (guess === secretNumber) {
     triggerConfetti();
-    document.querySelector(".message").textContent = "🎊 Correct Number !";
+    displayMessage("🎊 Correct Number !");
     document.querySelector(".hiddenNumber").textContent = secretNumber;
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".hiddenNumber").style.width = "160px";
@@ -33,14 +37,11 @@ document.querySelector(".check").addEventListener("click", function () {
     }
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".message").textContent =
-        guess > secretNumber ? "📈 Too High !" : "📉 Too Low !";
+      displayMessage(guess > secretNumber ? "📈 Too High !" : "📉 Too Low !");
       score--;
       document.querySelector(".score").textContent = score;
     } else {
-      document.querySelector(
-        ".message"
-      ).textContent = `💥 You Lost the Game ! The number was ${secretNumber}.`;
+      displayMessage(`💥 You Lost the Game ! The number was ${secretNumber}.`);
       document.querySelector(".hiddenNumber").textContent = secretNumber;
       document.querySelector(".score").textContent = "0";
       document.querySelector("body").style.backgroundColor = "#4c0909ff";
@@ -56,7 +57,7 @@ document.querySelector(".again").addEventListener("click", function () {
 
   document.querySelector(".guess").value = "";
   document.querySelector(".hiddenNumber").textContent = "?";
-  document.querySelector(".message").textContent = "🤷‍♂️ Start guessing...";
+  displayMessage("🤷‍♂️ Start guessing...");
   document.querySelector(".score").textContent = score;
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".hiddenNumber").style.width = "80px";
