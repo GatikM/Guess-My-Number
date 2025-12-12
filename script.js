@@ -31,8 +31,13 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
-  } else if (guess > secretNumber) {
-    if (score <= 1) {
+  } else if (guess !== secretNumber) {
+    if (score > 1) {
+      document.querySelector(".message").textContent =
+        guess > secretNumber ? "📈 Too High !" : "📉 Too Low !";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
       document.querySelector(
         ".message"
       ).textContent = `💥 You Lost the Game ! The number was ${secretNumber}.`;
@@ -40,24 +45,6 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = "0";
       document.querySelector("body").style.backgroundColor = "#4c0909ff";
       document.querySelector(".hiddenNumber").style.width = "160px";
-    } else {
-      document.querySelector(".message").textContent = "📈 Too High !";
-      score--;
-      document.querySelector(".score").textContent = score;
-    }
-  } else if (guess < secretNumber) {
-    if (score <= 1) {
-      document.querySelector(
-        ".message"
-      ).textContent = `💥 You Lost the Game ! The number was ${secretNumber}`;
-      document.querySelector(".hiddenNumber").textContent = secretNumber;
-      document.querySelector(".score").textContent = "0";
-      document.querySelector("body").style.backgroundColor = "#4c0909ff";
-      document.querySelector(".hiddenNumber").style.width = "160px";
-    } else {
-      document.querySelector(".message").textContent = "📉 Too Low !";
-      score--;
-      document.querySelector(".score").textContent = score;
     }
   }
 });
