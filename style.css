@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  background-color: #222;
+  color: white;
+  height: 100vh;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.again{
+  margin: 30px;
+  width: 100px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+.check {
+  margin: 20px;
+  width: 100px;
+  height: 60px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.hiddenNumber {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid wheat;
+  margin: 20px auto;
+  width: 80px;
+  height: 80px;
+}
+
+.guess {
+  margin: 20px;
+  height: 80px;
+  width: 140px;
+  font-size: 24px;
+  padding: 15px;
+  border: white solid 2px;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  /* margin-left: 100px;
+    margin-right: 100px; */
+}
+
+.leftside {
+  display: flex;
+  flex-direction: column;
+  margin: 60px;
+  align-items: center;
+}
+
+.rightside {
+  margin-right: 80px;
+  padding: 20px;
+  font-size: 24px;
+  padding-top: 70px;
+}
+
+.message {
+  margin-bottom: 50px;
+}
